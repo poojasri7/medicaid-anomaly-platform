@@ -1,0 +1,10 @@
+import duckdb
+con = duckdb.connect()
+print("Row count:")
+print(con.execute("SELECT COUNT(*) FROM read_csv_auto('/Users/poojasri/Downloads/medicaid-provider-spending.csv')").fetchone())
+print("\nSample:")
+print(con.execute("SELECT * FROM read_csv_auto('/Users/poojasri/Downloads/medicaid-provider-spending.csv') LIMIT 10").df())
+print("\nUnique providers:")
+print(con.execute("SELECT COUNT(DISTINCT SERVICING_PROVIDER_NPI_NUM) FROM read_csv_auto('/Users/poojasri/Downloads/medicaid-provider-spending.csv')").fetchone())
+print("\nDate range:")
+print(con.execute("SELECT MIN(CLAIM_FROM_MONTH), MAX(CLAIM_FROM_MONTH) FROM read_csv_auto('/Users/poojasri/Downloads/medicaid-provider-spending.csv')").fetchone())
