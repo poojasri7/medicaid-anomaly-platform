@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import axios from "axios";
 
-const API = "http://127.0.0.1:8000";
+const API = "https://medicaid-anomaly-platform.onrender.com";
 
 export default function App() {
   const [stats, setStats] = useState(null);
