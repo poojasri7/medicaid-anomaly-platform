@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 # Load precomputed anomalies
-df = pd.read_csv('/Users/poojasri/anomalies_explained.csv')
+df = pd.read_csv('anomalies_explained.csv')
 df = df[df['is_anomaly'] == True].fillna('Unknown')
 
 @app.get("/")
